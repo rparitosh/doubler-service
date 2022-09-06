@@ -12,7 +12,8 @@ public class DoublerController {
     RestTemplate restTemplate;
 
     @GetMapping("/twice")
-    public int twice(@RequestParam int value){
-        return restTemplate.getForObject ("adder-service.default.svc.cluster.local:9001/add?a=" +value + "&b=" +value , Integer.class);
+    public int twice(@RequestParam int a){
+       // return restTemplate.getForObject ("http://localhost:9001/add?a=" +a + "&b=" +a , Integer.class);
+        return restTemplate.getForObject ("adder-service.default.svc.cluster.local:9001/add?a=" +a + "&b=" +a , Integer.class);
     }
 }
