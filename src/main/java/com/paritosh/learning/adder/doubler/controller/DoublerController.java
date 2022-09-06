@@ -21,8 +21,8 @@ public class DoublerController {
     @GetMapping("/twice")
     public int twice(@RequestParam int a){
        // return restTemplate.getForObject ("http://localhost:9001/add?a=" +a + "&b=" +a , Integer.class);
-        List<String> services = discoveryClient.getServices();
-        System.out.println("dervices : " + services);
+      //  List<String> services = discoveryClient.getServices();
+      //  System.out.println("dervices : " + services);
         return restTemplate.getForObject ("http://adder-service/add?a=" +a + "&b=" +a , Integer.class);
     }
 }
