@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
-
 @RestController
 
 public class DoublerController {
@@ -20,9 +18,9 @@ public class DoublerController {
 
     @GetMapping("/twice")
     public int twice(@RequestParam int a){
-       // return restTemplate.getForObject ("http://localhost:9001/add?a=" +a + "&b=" +a , Integer.class);
-      //  List<String> services = discoveryClient.getServices();
-      //  System.out.println("dervices : " + services);
-        return restTemplate.getForObject ("http://adder-service/add?a=" +a + "&b=" +a , Integer.class);
+
+        String url = "http://adder-service:9003/add?a="+a+"&b="+a;
+
+        return restTemplate.getForObject (url, Integer.class);
     }
 }
